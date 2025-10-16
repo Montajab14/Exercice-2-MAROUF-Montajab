@@ -5,7 +5,7 @@ constructor() {
     this.id = 1;
 }
 
-getALL() {
+getAll() {
     return this. todos;
 }
 
