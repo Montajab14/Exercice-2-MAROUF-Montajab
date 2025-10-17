@@ -12,24 +12,6 @@ Une API REST simple pour gérer une liste de tâches avec **Node.js**, **Express
 
 ---
 
-## Structure du projet
-
-Exercice 2/
-├── server.js
-├── .env
-├── package.json
-└── src/
-├── config/
-│ └── db.js
-├── controllers/
-│ └── ToDoController.js
-├── models/
-│ └── ToDoModel.js
-└── routes/
-└── ToDoRoutes.js
-
----
-
 ## Prérequis
 
 - Node.js ≥ 18
@@ -73,6 +55,7 @@ CREATE TABLE todos (
     title VARCHAR(255) NOT NULL
 );
 
+---
 
 #Lancer le serveur :
 (bash)
@@ -95,4 +78,4 @@ curl http://localhost:3000/api/todos
 #Supprimer une tâche (DELETE)
 curl -X DELETE http://localhost:3000/api/todos/1
 
-
+---
