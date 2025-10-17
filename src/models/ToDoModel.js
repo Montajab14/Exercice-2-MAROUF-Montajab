@@ -21,12 +21,4 @@ export default class Todo {
     );
     return result.rows[0];
   }
-
-  static async toggleDone(id) {
-    const result = await pool.query(
-      "UPDATE todos SET done = NOT done WHERE id=$1 RETURNING *",
-      [id]
-    );
-    return result.rows[0];
-  }
 }
