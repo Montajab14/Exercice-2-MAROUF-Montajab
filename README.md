@@ -57,8 +57,8 @@ CREATE TABLE todos (
 
 ---
 
-#Lancer le serveur :
-(bash)
+#Lancer le serveur : \
+(bash) \
 npm run dev
 
 #Mode Production :
