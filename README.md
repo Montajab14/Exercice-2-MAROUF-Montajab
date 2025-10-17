@@ -68,8 +68,8 @@ L’API principale : http://localhost:3000/api/todos
 
 #Tester l’API
 Ajouter une tâche (POST)
-curl -X POST http://localhost:3000/api/todos \
--H "Content-Type: application/json" \
+curl -X POST http://localhost:3000/api/todos 
+-H "Content-Type: application/json" 
 -d '{"title":"Apprendre Express"}'
 
 #Afficher toutes les tâches (GET)
