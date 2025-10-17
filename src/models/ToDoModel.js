@@ -1,26 +1,32 @@
+import { pool } from "../config/db.js";
+
 export default class Todo {
+  static async getAll() {
+    const result = await pool.query("SELECT * FROM todos ORDER BY id ASC");
+    return result.rows;
+  }
 
-constructor() {
-    this.todos = [];
-    this.id = 1;
-}
+  static async addTask(title) {
+    const result = await pool.query(
+      "INSERT INTO todos (title) VALUES ($1) RETURNING *",
+      [title]
+    );
+    return result.rows[0];
+  }
 
-getAll() {
-    return this. todos;
-}
+  static async deleteTask(id) {
+    const result = await pool.query(
+      "DELETE FROM todos WHERE id=$1 RETURNING *",
+      [id]
+    );
+    return result.rows[0];
+  }
 
-addTask(title) {
-    const newTask = { id: this.id++, title, done: false };
-    this. todos. push(newTask) ;
-    return newTask;
-}
-
-deleteTask(id) {
-    const index = this.todos. findIndex(t => t.id === id);
-        if (index !== -1) {
-
-            return this.todos. splice(index, 1) [0];
-        }
-        return null;
-    }
+  static async toggleDone(id) {
+    const result = await pool.query(
+      "UPDATE todos SET done = NOT done WHERE id=$1 RETURNING *",
+      [id]
+    );
+    return result.rows[0];
+  }
 }
